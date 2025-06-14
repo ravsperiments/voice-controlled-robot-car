@@ -14,5 +14,29 @@ This project transforms an Elegoo Smart Robot Car into a voice-controlled robot 
 4. Parsed via local LLaMA
 5. JSON command returned (e.g., `{"action": "turn_left", "duration": 2}`)
 
-## 🛠 Setup instructions and more coming soon.
+## 🛠 Setup
+
+1. Install the Python dependencies inside the `server/` folder:
+
+   ```bash
+   pip install -r server/requirements.txt
+   ```
+
+2. Start the FastAPI server:
+
+   ```bash
+   uvicorn server.main:app --reload
+   ```
+
+3. Send an audio file to the `/process-audio/` endpoint. A helper script
+   is provided:
+
+   ```bash
+   python server/test-upload.py
+   ```
+
+   The script posts the sample `forward.wav` recording and prints the
+   transcription along with the JSON command parsed by the LLaMA model.
+
+More detailed hardware instructions are tracked in `tasks.md`.
 
